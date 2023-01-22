@@ -1,0 +1,114 @@
+.blog-upload {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    /* margin: 2rem; */
+    height: 100vh;
+    align-items: center;
+    /* border: 1px solid red;*/
+    /* padding: 1rem; */
+}
+
+.blog-content {
+    display: flex;
+    padding: 5px;
+    background-color: black;
+    /* height: 70vh; */
+    border-radius: 10px;
+    width: 40vw;
+    margin: 2rem;
+    border: 1px solid yellow;
+    justify-content: center;
+}
+
+.profile-img {
+    padding: 3px;
+}
+
+.input-section {
+    background-color: rgb(34, 34, 34);
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+    color: white;
+}
+
+.blog-item {
+    margin: 15px 5px;
+}
+
+.btn-sub {
+    border-radius: 10px;
+    border: 1px solid yellow;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (min-width: 100px)and (max-width: 539px) {
+    .blog-upload {
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        /* margin: 2rem; */
+        height: 100vh;
+        align-items: center;
+        /* border: 1px solid red;*/
+        /* padding: 1rem; */
+    }
+    .blog-content {
+        display: flex;
+        padding: 5px;
+        background-color: black;
+        /* height: 70vh; */
+        border-radius: 10px;
+        width: 90vw;
+        margin: 1rem;
+        border: 1px solid yellow;
+        justify-content: center;
+    }
+    .profile-img {
+        padding: 3px;
+    }
+    .input-section {
+        background-color: rgb(34, 34, 34);
+        border-radius: 10px;
+        width: 90%;
+        padding: 10px;
+        color: white;
+    }
+    .blog-item {
+        margin: 15px 5px;
+    }
+}
+
+
+/* for tablet */
+
+@media screen and (min-width: 540px) and (max-width: 989px) {
+    .blog-content {
+        display: flex;
+        padding: 5px;
+        background-color: black;
+        /* height: 70vh; */
+        border-radius: 10px;
+        width: 90vw;
+        margin: 1rem 1rem 1rem 5rem;
+        border: 1px solid yellow;
+        justify-content: center;
+    }
+}
+
+
+/* for desktop */
+
+@media screen and (min-width: 990px) {
+    .container {
+        height: 80%;
+    }
+    .btn-login {
+        margin-top: 3px;
+    }
+    .form-control-lg {
+        font-size: large;
+    }
+}

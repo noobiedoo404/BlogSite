@@ -1,0 +1,151 @@
+<!-- <div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card" style="border: 4px solid black; border-radius: 1.5rem;display: flex;justify-content: center;">
+            <div class="card-header">
+                <h3 class="mb-0">Register</h3>
+            </div>
+            <div class="card-body">
+                <form action="" class="form" #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="registerUser()" novalidate>
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input #user='ngModel' [(ngModel)]="registerUserData.username" name="username" type="text" class="form-control rounded-0" required>
+                    </div>
+
+                    <div *ngIf="user.invalid && (user.dirty || user.touched)" class="alert">
+
+                        <div *ngIf="user.errors?.['required']">
+                            Name is required.
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input #email="ngModel" [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" required>
+                    </div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+
+                        <div *ngIf="email.errors?.['required']">
+                            Email is required.
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input #pass='ngModel' [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0" required>
+                    </div>
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert">
+
+                        <div *ngIf="pass.errors?.['required']">
+                            Password is required.
+                        </div>
+
+                    </div>
+                    <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="guru">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-0">Register</h3>
+        </div>
+        <div class="card-body">
+            <form action="" class="form" #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="registerUser()" novalidate>
+                <div class="form-group mb-2">
+                    <label for="">Username</label>
+                    <input #user='ngModel' [(ngModel)]="registerUserData.username" name="username" type="text" class="form-control rounded-0" required>
+                </div>
+
+
+                <div *ngIf="user.invalid && (user.dirty || user.touched)" class="alert">
+
+                    <div *ngIf="user.errors?.['required']">
+                        Name is required.
+                    </div>
+
+                </div>
+
+
+                <div class="form-group mb-2">
+                    <label for="">Email</label>
+                    <input #email="ngModel" [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" required>
+                </div>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+
+                    <div *ngIf="email.errors?.['required']">
+                        Email is required.
+                    </div>
+
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="">Password</label>
+                    <input #pass='ngModel' [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0" required>
+                </div>
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert">
+
+                    <div *ngIf="pass.errors?.['required']">
+                        Password is required.
+                    </div>
+
+                </div>
+                <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="body">
+    <div class="container">
+        <h1 class="text-center text-xl-start">Sign Up</h1>
+        <p class="text-center text-xl-start" style="color: white;">Already have an account?<a routerLink="/login"> Log in here.</a>
+        </p>
+
+        <form #userForm="ngForm" (ngSubmit)="registerUser()" class="needs-validation mb-2 d-flex flex-column justify-content-center" novalidate>
+            <div class="form-group">
+                <label for="" class="form-label fs-base my-2">Username 
+                  <span *ngIf="user.invalid && (user.dirty || user.touched) && user.errors?.['required']" class="text-warning">( UserName is required )</span>
+              </label>
+                <input #user='ngModel' [(ngModel)]="registerUserData.username" name="username" type="text" class="form-control form-control-lg rounded-3" placeholder="Enter a username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label fs-base my-2">Email<span
+                *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']" class="text-warning">
+                ( Email is required )
+              </span></label>
+                <input #email="ngModel" [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control form-control-lg rounded-3" placeholder="Enter your Email ID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label fs-base my-2">Password <span
+                *ngIf="pass.invalid && (pass.dirty || pass.touched) && pass.errors?.['required']" class="text-warning">
+                ( Password is required )
+              </span></label>
+                <div class="input-field">
+                    <input #pass='ngModel' [(ngModel)]="registerUserData.password" name="password" [type]="!viewPassword?'password':'text'" class="form-control form-control-lg rounded-3" placeholder="Enter a Password" required>
+
+                    <input type="checkbox" (click)="showPass()" class="checkbox-input">Show Password
+                </div>
+            </div>
+
+            <button [disabled]="userForm.form.invalid" type="submit" class="btn-login btn-lg">
+            <strong>Sign Up</strong>
+          </button>
+        </form>
+
+        <div class="lower-div">
+            <p class="copyright">© 2023 BlogSite by Partha Bhowmick.</p>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,411 @@
+<body>
+
+    <div class="parent">
+        <hr style="color: white;">
+        <!-- div for profile status -->
+        <div id="child1">
+
+            <div class="profile-section">
+                <div class="profile-section-left">
+                    <div class="profile-img-large">
+                        <img width="150" height="150" src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" style="border-radius: 50%; ">
+                    </div>
+                    <div class="profile-img-small">
+                        <img width="100" height="100" src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" style="border-radius: 50%; ">
+                    </div>
+
+                </div>
+                <div class="profile-section-right">
+                    <div class="profile-name-edit">
+                        <div class="profile-img-x-small">
+                            <img width="70px" height="70px" src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" style="border-radius: 50%; ">
+                        </div>
+                        <div class="profile-name">
+                            <p>{{userInfo.user_name}}</p>
+                        </div>
+                        <div class="profile-edit" data-bs-toggle="modal" data-bs-target="#editPhoto">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                        </div>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="post-count btn-stat">
+                            {{this.blogArray.length}} Posts
+                        </div>
+                        <!-- <div class="profile-followers btn-stat" (click)="getFollowers()" data-bs-toggle="modal" data-bs-target="#followers">{{userInfo.followers}} Followers</div>
+                        <div class="profile-followings btn-stat" (click)="getFollowings()" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">{{userInfo.followings}} Following</div> -->
+                        <div class="profile-followers btn-stat" (click)="getFollowers()" data-bs-toggle="modal" data-bs-target="#followers">20 Followers</div>
+                        <div class="profile-followings btn-stat" (click)="getFollowings()" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">10 Following</div>
+                    </div>
+                    <div class="profile-stat-mini">
+                        <div class="post-count btn-stat">
+                            <div>
+                                {{this.blogArray.length}}
+                            </div>
+                            <div>
+                                Posts
+                            </div>
+
+                        </div>
+                        <!-- <div>{{followingsArray.length}}</div> -->
+                        <div class="profile-followers btn-stat" (click)="getFollowers()" data-bs-toggle="modal" data-bs-target="#followers">
+                            <div>{{userInfo.followers}}</div>
+                            <div>Followers</div>
+                        </div>
+                        <div class="profile-followings btn-stat" (click)="getFollowings()" data-bs-toggle="modal" data-bs-target="#followings">
+                            <div>{{userInfo.followings}}</div>
+                            <div>Followings</div>
+                        </div>
+
+                    </div>
+
+                    <div class="profile-about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eaque voluptatem nesciunt doloremque provident modi sed pariatur numquam. Veniam, deleniti.</div>
+                </div>
+            </div>
+
+
+            <!-- div for blogs of the profile -->
+            <div *ngIf="noblog">
+                <h1>No blog yes!</h1>
+            </div>
+            <div *ngIf="!noblog">
+
+                <div class="blog-section" *ngFor="let item of blogArray ; let i = index" [attr.data-index]="i">
+
+                    <div class="blog-unit">
+                        <div class="blog-unit-left">
+                            <img src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" alt="" width="60" height="60">
+                        </div>
+                        <div class="blog-unit-right">
+                            <div class="blog-user-detail">
+                                <div class="blog-user-img-inside">
+                                    <img src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" alt="" width="40" height="40">
+                                </div>
+                                <div class="blog-user-detail-left">
+                                    <div class="blog-user-name" (click)="gotoUser(item.user_name)">{{userInfo.user_name}}</div>
+
+                                </div>
+                                <div class="blog-user-detail-right">
+                                    <!-- <div class="three-dots">
+        
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div> -->
+                                    <div class="dropdown">
+                                        <div id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </div>
+                                        <ul class="dropdown-menu three-dots" aria-labelledby="dropdownMenuButton2">
+                                            <li id="test">
+                                                <p class="dropdown-item para-three-dots">{{item.time}}</p>
+                                            </li>
+
+                                            <hr style="color: white; padding: 0;margin: 0;">
+                                            <li class="close-three-dot">
+                                                <p class="para-three-dots">Close</p>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-detail">
+                                <div class="blog-title">{{item.title}}</div>
+                                <div class="blog-img">
+                                    <img width="500" height="300" class="blog-img-var" src="../../assets/img/dei5mld-66ba6730-c2f6-44bd-a465-5b70f9f740c1.jpg" alt="">
+                                    <!-- <img src="http://localhost:8080/blogImages/{{item.photo}}" alt="" width="100" height="100"> -->
+                                </div>
+
+
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-body">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia exercitationem quod at excepturi quis natus sequi fugiat dolor eum ex non maxime earum dicta ipsum, unde blanditiis in? Debitis consequatur nobis a, sed neque veniam minima vero tempora quae
+                                    voluptatibus rem itaque vitae non sapiente quasi, tenetur dolore necessitatibus exercitationem, veritatis delectus! Est ipsa incidunt itaque, recusandae excepturi nobis, ad saepe assumenda delectus nihil, aliquam animi.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem totam dolorem omnis. Alias cupiditate eum quia reiciendis maiores, iure cum provident veniam cumque, eos nobis inventore repellendus eveniet modi
+                                    odit dicta. Natus!
+                                </div>
+                                <div class="blog-hashtags">
+                                    <span *ngFor="let hashtag of item.hashtags ; let i = index" [attr.data-index]="i" style="text-align: start;">    
+                                            <a class="hashtag-link" routerLink="/search/{{hashtag}}">#{{hashtag}}</a>                 
+                                    </span>
+                                </div>
+                                <hr style="color: white; padding: 0;margin: 0;">
+                                <div class="comment-stat">
+                                    <div class="like-count">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                        <div style="margin-left: 6px;">
+                                            {{item.likes}}
+                                        </div>
+                                    </div>
+                                    <div class="comment-count">
+                                        <i class="fa-regular fa-comment" style="margin: 0 4px 0 11px;"></i>
+                                        <div style="margin-left: 5px;">
+                                            {{comments.length}}
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <hr style="color: white; padding: 0;margin: 0;">
+                                <div class="like-comment-icons">
+                                    <div class="like-section" (click)="like(item.blog_id,i)" *ngIf="!item.likedby; else elseblock">
+                                        <div class="like-section-left-heart-blank">
+                                            <i class="fa-regular fa-heart" style="font-size: x-large;"></i>
+                                        </div>
+                                        <div>
+                                            Like
+                                        </div>
+
+                                    </div>
+                                    <ng-template #elseblock>
+                                        <div class="like-section" (click)="unlike(item.blog_id,i)">
+                                            <div class="like-section-left-heart-red">
+                                                <img height="30" width="28" src="../../assets/img/heart.png" alt="">
+                                            </div>
+
+                                        </div>
+                                    </ng-template>
+
+                                    <div class="comment-icon" (click)="comment(i,item.blog_id)">
+                                        Comment
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-section" *ngIf="item.canComment">
+
+                                <div class="write-comment">
+                                    <form>
+
+                                        <div>
+                                            <input class="comment-input" type="text" name="about" [(ngModel)]="text" placeholder="Add a comment" /> <br/>
+                                        </div>
+                                        <div class="btn-send">
+                                            <button type="submit" (click)="addComment(item.blog_id,item.user_id,text)">Send</button>
+                                        </div>
+                                        <!-- <div style="display: block;">
+                                                <input style="width: 100%;" type="text" name="about" [(ngModel)]="text" placeholder="Add a comment" /> <br/>
+                                            </div>
+                                            <div style="display: flex;justify-content:right;">
+                                                <button type="submit" (click)="addComment(item.blog_id,item.user_id,text)">Send</button>
+                                            </div> -->
+
+                                    </form>
+                                </div>
+                                <div *ngFor="let comment of comments">
+
+                                    <div class="comment-unit">
+                                        <div class="left-comment-unit">
+                                            <img style="display: inline;justify-content:left" src="http://localhost:8080/profileImages/{{comment.profile_photo}}" alt="" height="30px" width="30px">
+                                        </div>
+                                        <div class="right-comment-unit">
+                                            <div class="comment-owner" (click)="gotoUser(comment.user_name)">
+                                                {{comment.user_name}}
+                                            </div>
+                                            <div class="comment-content">
+                                                {{comment.comment}}
+                                            </div>
+                                            <div class="comment-time">
+                                                {{comment.time}}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- <div class="d-flex flex-row bd-highlight mb-3">
+                                        <div class="p-2 bd-highlight">
+                                            <img style="display: inline;justify-content:left" src="http://localhost:8080/profileImages/{{comment.profile_photo}}" alt="" height="30px" width="30px">
+                                        </div>
+        
+                                        <div class="p-2 bd-highlight" style="text-align: left;border: .5px solid grey;border-radius: 2%;padding: 5px;margin-right: 0;">
+                                            <h5>{{comment.user_name}}</h5>
+                                            <h6 style="font-weight: 50;">{{comment.comment}}</h6>
+                                            <p style="text-align: right;font-size: x-small;">{{comment.time}}</p>
+                                        </div>
+                                    </div> -->
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- div for menu bar -->
+        <!-- <div id="child2">
+
+            <div style="text-align:start;margin: 0;">
+                <div class="nav-links" data-bs-toggle="modal" data-bs-target="#editPhoto"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</div>
+                <div class="nav-links" (click)="gotoWriteBlogPage()"><i class="fa-solid fa-plus"></i> Create blog</div>
+                <div class="nav-links" routerLink="/home"><i class="fa-solid fa-house"></i> Go to home</div>
+                <div class="nav-links"><a style="padding: 0;color: white;" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-right-to-bracket"></i>
+                        Logging Options
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="_authService.logOut1()">Log out</a></li>
+                        <li><a class="dropdown-item" (click)="_authService.logOut2()">Switch account</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div> -->
+    </div>
+
+
+
+
+    <!-- followerModal -->
+
+    <div class="modal fade" id="followers" tabindex="-1" style="color: black;" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h2 class="modal-title" id="signupModalLabel" style="color: black;">Followers</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div *ngFor="let follower of followersArray ; let i = index" [attr.data-index]="i">
+
+                        <span>
+                            <img data-bs-dismiss="modal" width="100" height="100" (click)="gotoUser(follower.user_name)" src="http://localhost:8080/profileImages/{{follower.profile_photo}}" alt="">
+                        </span>
+                        <button data-bs-dismiss="modal" (click)="gotoUser(follower.user_name)">{{follower.user_name}}</button>
+                        <button *ngIf="follower.isFollowing==false" class="follow" (click)="followback(follower.user_id,i)" style="border:1px solid red">follow back</button>
+                        <!-- <button (click)="follow2()" style="border:1px solid red">follow plz</button> -->
+                        <!-- <div class="dropdown">
+                            <div id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <ul class="dropdown-menu three-dots" aria-labelledby="dropdownMenuButton2">
+                                <li id="test">
+                                    <p class="dropdown-item para-three-dots">option</p>
+                                </li>
+
+                                <hr style="color: white; padding: 0;margin: 0;">
+                                <li class="close-three-dot">
+                                    <p class="para-three-dots">Close</p>
+                                </li>
+
+
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- followingModal -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title" id="exampleModalToggleLabel">Following</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div *ngFor="let following of followings ; let i = index" [attr.data-index]="i">
+                        <span>
+                            <img data-bs-dismiss="modal" width="100" height="100" (click)="gotoUser(following.user_name)" src="http://localhost:8080/profileImages/{{following.profile_photo}}" alt="">
+                        </span>
+                        <button data-bs-dismiss="modal" (click)="gotoUser(following.user_name)">{{following.user_name}}</button>
+                        <button *ngIf="following.following==true" class="btn btn-show btn-primary follow" style="color: black; margin-right: 2px;" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2" (click)="gotoUnfollowModal(following.user_id,following.user_name,following.profile_photo,i)"> Following</button>
+                        <button *ngIf="following.following==false" class="btn btn-show btn-primary" style="color: black; margin-right: 2px;" (click)="follow(following.user_id,i)"> follow</button>
+                        <!-- <div class="dropdown">
+                            <div id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <ul class="dropdown-menu three-dots" aria-labelledby="dropdownMenuButton2">
+                                <li id="test">
+                                    <p class="dropdown-item para-three-dots">option</p>
+                                </li>
+
+                                <hr style="color: white; padding: 0;margin: 0;">
+                                <li class="close-three-dot">
+                                    <p class="para-three-dots">Close</p>
+                                </li>
+
+
+                            </ul>
+                        </div> -->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button lass="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- unfollowModal -->
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content" style="color: black;">
+                <div class="modal-header" style="border-bottom: 0;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center ;padding: 3px 0 3px 0;">
+                    <div style="padding-bottom: 20px;">
+                        <img data-bs-dismiss="modal" src="http://localhost:8080/profileImages/{{userdata.profile_photo}}" alt="" (click)="gotoUser(userdata.user_name)" width="70" height="70" style="border-radius:20%">
+                    </div>
+                    <!-- <span>
+                        <p data-bs-dismiss="modal" (click)="gotoUser(userdata.user_name)">unfollow @</p>
+                        <p>{{userdata.user_name}}</p>
+                    </span> -->
+
+                    <p data-bs-dismiss="modal" (click)="gotoUser(userdata.user_name)">Unfollow @{{userdata.user_name}}?
+                    </p>
+                    <hr>
+                    <!-- <p>{{userdata.user_name}}</p> -->
+                    <p [hidden]="userdata.user_id==target" style="color: red; padding: 2px; margin-top: 1px;cursor: pointer;" (click)="unfollow(userdata.user_id,userdata.index)">Unfollow</p>
+                    <p [hidden]="userdata.user_id!=target" class="follow" style="padding: 2px; margin-top: 1px;cursor: pointer;" (click)="follow(userdata.user_id,userdata.index)">follow</p>
+                    <hr>
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to followings</button>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- EditPhotoModal -->
+    <div class="modal fade" id="editPhoto" tabindex="-1" style="color:black" aria-labelledby="editPhotoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title" id="editPhotoLabel">Upload Your Profile Photo</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="file" name="photo" placeholder="Select the image file" (change)="selectImg($event)" accept="image/png, image/jpeg" /> <br/>
+                        <button type="submit" (click)="onSubmitPhoto()">Upload</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>

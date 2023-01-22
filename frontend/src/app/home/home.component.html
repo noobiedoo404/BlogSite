@@ -1,0 +1,1051 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css" integrity="sha512-p++g4gkFY8DBqLItjIfuKJPFvTPqcg2FzOns2BNaltwoCOrXMqRIOqgWqWEvuqsj/3aVdgoEo2Y7X6SomTfUPA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+
+
+<div class="parent">
+    <hr style="color: white;">
+    <div class="child" id="child1">
+        <div class="topic-bar">
+            <span class="topic"><button (click)="enableDisableRule(true,false,false)" 
+                [ngClass]="{'btn-child1': !pointer1, 'red': pointer1}">Trending 🚀</button></span>
+            <span class="topic"><button  (click)="enableDisableRule(false,true,false)" 
+                [ngClass]="{'btn-child1': !pointer2, 'red': pointer2}">Hashtags #️⃣ </button></span>
+            <!-- <span class="topic"><button   (click)="enableDisableRule(false,false,true)" 
+                [ngClass]="{'btn-child1': !pointer3, 'red': pointer3}" (click)="gotoWriteBlogPage()">Post blog :) <img class="topic-icon" src="assets/img/send.png " alt="" width="25" height="25" style="vertical-align: bottom;"></button></span> -->
+            <hr style="color: white; padding: 0;margin: 0;">
+        </div>
+
+
+
+
+        <!-- slider max for full laptop screen -->
+        <div class="wrapper" *ngIf="pointer1">
+            <div class="inner">
+                <div class="col" id="col-1" (click)="gotoUser(this.MostFollowedUsers[0].user_name)">
+
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-1">
+                            1
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[0].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[0].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[0].profile_photo}}" alt="" width="60" height="60">
+                    </div>
+
+                </div>
+                <div class="col" id="col-2" (click)="gotoUser(this.MostFollowedUsers[1].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-2">
+                            2
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[1].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[1].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[1].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-3" (click)="gotoUser(this.MostFollowedUsers[2].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-3">
+                            3
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[2].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[2].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[2].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+
+                </div>
+                <div class="col" id="col-4" (click)="gotoUser(this.MostFollowedUsers[3].user_name)">
+
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-4">
+                            4
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[3].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[3].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[3].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-5" (click)="gotoUser(this.MostFollowedUsers[4].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-5">
+                            5
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[4].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[4].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[4].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+                <div class="col" id="col-6" (click)="gotoUser(this.MostFollowedUsers[5].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-6">
+                            6
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[5].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[5].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[5].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-7" (click)="gotoUser(this.MostFollowedUsers[6].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-7">
+                            7
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[6].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[6].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[6].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+                <div class="col" id="col-8" (click)="gotoUser(this.MostFollowedUsers[7].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-8">
+                            8
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[7].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[7].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[7].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-9" (click)="gotoUser(this.MostFollowedUsers[8].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-9">
+                            9
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[8].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[8].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[8].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+                <div class="col" id="col-10" (click)="gotoUser(this.MostFollowedUsers[9].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-10">
+                            10
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[9].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[9].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[9].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-11" (click)="gotoUser(this.MostFollowedUsers[10].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-11">
+                            11
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[10].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[10].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[10].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+                <div class="col" id="col-12" (click)="gotoUser(this.MostFollowedUsers[11].user_name)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-12">
+                            12
+                        </div>
+                    </div>
+                    <div class="col-username">
+                        <p>@{{this.MostFollowedUsers[11].user_name}}</p>
+                        <p class="followed-by" style="font-size: x-small;">followed by {{this.MostFollowedUsers[11].followers}} people</p>
+                    </div>
+                    <div class="col-img">
+                        <img class="profile-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[11].profile_photo}}" alt="" width="60" height="60" style="border-radius:10%;padding: 2px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- slider mini for tablet accounts-->
+        <div class="slider-mini" *ngIf="pointer1">
+            <div id="slider-mini-col-1" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[0].profile_photo}}" alt="" width="40" height="40">
+
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[0].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-2" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[1].profile_photo}}" alt="" width="40" height="40">
+
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[1].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-3" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[2].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[2].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-4" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[3].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[3].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-5" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[4].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[4].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-6" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[5].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[5].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-7" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[6].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[6].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-8" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[7].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[7].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-9" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[8].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[8].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-10" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[9].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[9].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-11" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[10].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[10].user_name}}
+                </div>
+            </div>
+            <div id="slider-mini-col-12" class="slider-mini-content">
+                <div class="slider-mini-profile-img">
+                    <img class="smpi" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[11].profile_photo}}" alt="" width="40" height="40">
+                </div>
+                <div class="slider-mini-profile-name">
+                    @{{this.MostFollowedUsers[11].user_name}}
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <!-- <div class="wrapper2">
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[0].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[0].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[1].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[1].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[2].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[2].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[3].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[3].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[4].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[4].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[5].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[5].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[6].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[6].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[7].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[7].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[8].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[8].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[9].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[9].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[10].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[10].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[11].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[11].profile_photo}}" alt="" width="40" height="40">
+            </div>
+        </div> -->
+
+        <!-- carousal for hashtags -->
+
+        <!-- <div class="wrapper3">
+            <div class="wrapper3-inner">
+                <div class="wrapper3-inner-left">
+                    <div class="wrapper3-inner-button">
+                    3
+                    </div>
+                </div>
+                <div class="wrapper3-inner-right">
+                    <div class="wrapper3-inner-right-upper">right-upper</div>
+                    <div class="wrapper3-inner-right-lower">right-lower</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div class="wrapper2">
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[0].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[0].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[1].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[1].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[2].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[2].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[3].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[3].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[4].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[4].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[5].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[5].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[6].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[6].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[7].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[7].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[8].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[8].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[9].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[9].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[10].user_name}}</p>
+                <img class="inner2-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[10].profile_photo}}" alt="" width="40" height="40">
+            </div>
+            <div class="inner2">
+                <p class="inner2-para">@{{this.MostFollowedUsers[11].user_name}}</p>
+                <img class="inner2-img" class="inner2-para" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[11].profile_photo}}" alt="" width="40" height="40">
+            </div>
+        </div> -->
+
+        <div class="wrapper" *ngIf="pointer2">
+            <div class="inner">
+                <div class="col" id="col-1" (click)="gotoHashtag(this.popularHashtags[0].hashtag)">
+
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-1">
+                            1
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[0].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[0].used_by}} people</p>
+                    </div>
+
+                </div>
+                <div class="col" id="col-2" (click)="gotoHashtag(this.popularHashtags[1].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-2">
+                            2
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[1].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[1].used_by}} people</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-3" (click)="gotoHashtag(this.popularHashtags[2].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-3">
+                            3
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[2].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[2].used_by}} people</p>
+                    </div>
+
+
+                </div>
+                <div class="col" id="col-4" (click)="gotoHashtag(this.popularHashtags[3].hashtag)">
+
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-4">
+                            4
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[3].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[3].used_by}} people</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-5" (click)="gotoHashtag(this.popularHashtags[4].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-5">
+                            5
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[4].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[4].used_by}} people</p>
+                    </div>
+
+                </div>
+                <div class="col" id="col-6" (click)="gotoHashtag(this.popularHashtags[5].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-6">
+                            6
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[5].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[5].used_by}} people</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-7" (click)="gotoHashtag(this.popularHashtags[6].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-7">
+                            7
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[6].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[6].used_by}} people</p>
+                    </div>
+
+                </div>
+                <div class="col" id="col-8" (click)="gotoHashtag(this.popularHashtags[7].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-8">
+                            8
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[7].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[7].used_by}} people</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-9" (click)="gotoHashtag(this.popularHashtags[8].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-9">
+                            9
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[8].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[8].used_by}} people</p>
+                    </div>
+
+                </div>
+                <div class="col" id="col-10" (click)="gotoHashtag(this.popularHashtags[9].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-10">
+                            10
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[9].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[9].used_by}} people</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inner">
+                <div class="col" id="col-11" (click)="gotoHashtag(this.popularHashtags[10].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-11">
+                            11
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[10].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[10].used_by}} people</p>
+                    </div>
+
+                </div>
+                <div class="col" id="col-12" (click)="gotoHashtag(this.popularHashtags[11].hashtag)">
+                    <div class="col-index">
+                        <div class="btn-index" id="btn-index-12">
+                            12
+                        </div>
+                    </div>
+                    <div class="col-hashtag">
+                        <p>#{{this.popularHashtags[11].hashtag}}
+                            <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[11].used_by}} people</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- for hashtags -->
+        <!-- slider mini for tablet accounts-->
+        <div class="slider-mini" *ngIf="pointer2">
+            <div id="slider-mini-col-1" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[0].hashtag)">
+                #{{this.popularHashtags[0].hashtag}}
+            </div>
+            <div id="slider-mini-col-2" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[1].hashtag)">
+                #{{this.popularHashtags[1].hashtag}}
+            </div>
+            <div id="slider-mini-col-3" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[2].hashtag)">
+                #{{this.popularHashtags[2].hashtag}}
+            </div>
+            <div id="slider-mini-col-4" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[3].hashtag)">
+                #{{this.popularHashtags[3].hashtag}}
+            </div>
+            <div id="slider-mini-col-5" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[4].hashtag)">
+                #{{this.popularHashtags[4].hashtag}}
+            </div>
+            <div id="slider-mini-col-6" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[5].hashtag)">
+                #{{this.popularHashtags[5].hashtag}}
+            </div>
+            <div id="slider-mini-col-7" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[6].hashtag)">
+                #{{this.popularHashtags[6].hashtag}}
+            </div>
+            <div id="slider-mini-col-8" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[7].hashtag)">
+                #{{this.popularHashtags[7].hashtag}}
+            </div>
+            <div id="slider-mini-col-9" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[8].hashtag)">
+                #{{this.popularHashtags[8].hashtag}}
+            </div>
+            <div id="slider-mini-col-10" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[9].hashtag)">
+                #{{this.popularHashtags[9].hashtag}}
+            </div>
+            <div id="slider-mini-col-11" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[10].hashtag)">
+                #{{this.popularHashtags[10].hashtag}}
+            </div>
+            <div id="slider-mini-col-12" class="slider-mini-content" (click)="gotoHashtag(this.popularHashtags[11].hashtag)">
+                #{{this.popularHashtags[11].hashtag}}
+            </div>
+        </div>
+
+        <!-- <div id="child3">
+            <div *ngIf="pointer2" id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" style="border-bottom: 30px solid black;">
+                <div class="carousel-inner" style="padding: 5px;">
+                    <div class="carousel-item active">
+                        <div class="row row-cols-2">
+                            <div class="col" style="background-color: rgba(114, 87, 139, 0.235);" (click)="gotoUser(this.MostFollowedUsers[0].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: blueviolet;">1</button> #{{this.popularHashtags[0].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[0].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[0].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color:#f5ff0066;" (click)="gotoUser(this.MostFollowedUsers[1].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: yellow;">2</button> #{{this.popularHashtags[1].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[1].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[1].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color: rgba(255, 68, 0, 0.249)" (click)="gotoUser(this.MostFollowedUsers[2].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: brown;">3</button> #{{this.popularHashtags[2].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[2].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[2].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color: rgba(0, 128, 0, 0.5)" (click)="gotoUser(this.MostFollowedUsers[3].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: green;">4</button> #{{this.popularHashtags[3].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[3].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[3].used_by}} people</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row row-cols-2">
+                            <div class="col" style="background-color: rgba(114, 87, 139, 0.235);" (click)="gotoUser(this.MostFollowedUsers[4].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: blueviolet;">5</button> #{{this.popularHashtags[3].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[4].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[4].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color:#f5ff0066;" (click)="gotoUser(this.MostFollowedUsers[5].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: yellow;">6</button> #{{this.popularHashtags[5].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[5].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[5].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color: rgba(255, 68, 0, 0.249)" (click)="gotoUser(this.MostFollowedUsers[6].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: brown;">7</button>#{{this.popularHashtags[6].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[6].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[6].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color: rgba(0, 128, 0, 0.5)" (click)="gotoUser(this.MostFollowedUsers[7].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: green;">8</button> #{{this.popularHashtags[7].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[7].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[7].used_by}} people</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row row-cols-2">
+                            <div class="col" style="background-color: rgba(114, 87, 139, 0.235);" (click)="gotoUser(this.MostFollowedUsers[8].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: blueviolet;">9</button> #{{this.popularHashtags[8].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[8].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[8].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color:#f5ff0066;" (click)="gotoUser(this.MostFollowedUsers[9].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: yellow;">10</button> #{{this.popularHashtags[9].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[9].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[9].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color: rgba(255, 68, 0, 0.249)" (click)="gotoUser(this.MostFollowedUsers[10].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: brown;">11</button> #{{this.popularHashtags[10].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/profileImages/{{this.MostFollowedUsers[10].profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.MostFollowedUsers[10].used_by}} people</p>
+                                </div>
+                            </div>
+                            <div class="col" style="background-color: rgba(0, 128, 0, 0.5)" (click)="gotoUser(this.MostFollowedUsers[11].user_name)">
+                                <button class="btn-index" id="btn-index-1" style="background-color: green;">12</button> #{{this.popularHashtags[11].hashtag}}
+                                <img class="carousal-img" src="http://localhost:8080/blogImages/chat.png" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                                <div>
+                                    <p class="followed-by" style="font-size: x-small;">used by {{this.popularHashtags[11].used_by}} people</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+        </div> -->
+
+
+        <div class="blog-section" *ngFor="let item of blogArray ; let i = index" [attr.data-index]="i">
+
+            <div class="blog-unit">
+                <div class="blog-unit-left">
+                    <img src="http://localhost:8080/profileImages/{{item.profile_photo}}" alt="" width="60" height="60">
+                </div>
+                <div class="blog-unit-right">
+                    <div class="blog-user-detail">
+                        <div class="blog-user-img-inside">
+                            <img src="http://localhost:8080/profileImages/{{item.profile_photo}}" alt="" width="40" height="40">
+                        </div>
+                        <div class="blog-user-detail-left">
+                            <div class="blog-user-name" (click)="gotoUser(item.user_name)">{{item.user_name}}</div>
+                            <!-- <div class="blog-user-follow-status" *ngIf="item.YouFollowThisUser" class="follow" (click)="unfollow(item.user_id,i)">following</div> -->
+                            <div class="blog-user-follow-status" *ngIf="!item.YouFollowThisUser" class="follow" (click)="follow(item.user_id)">follow</div>
+                            <!-- <div class="blog-user-follow-status" *ngIf="followings | userNotThere : item.user_id" [hidden]="item.user_id==target" class="follow" (click)="follow(item.user_id)">follow</div>
+                            <div class="blog-user-follow-status" [hidden]="item.user_id!=target" class="follow" (click)="unfollow(item.user_id)">following</div> -->
+                        </div>
+                        <div class="blog-user-detail-right">
+                            <!-- <div class="three-dots">
+
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div> -->
+                            <div class="dropdown">
+                                <div id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                                <ul class="dropdown-menu three-dots" aria-labelledby="dropdownMenuButton2">
+                                    <li>
+                                        <p class="dropdown-item para-three-dots">{{item.time}}</p>
+                                    </li>
+                                    <li>
+                                        <p class="dropdown-item para-three-dots" (click)="gotoUser(item.user_name)">Go to @{{item.user_name}}</p>
+                                    </li>
+                                    <li *ngIf="item.YouFollowThisUser">
+                                        <p class="dropdown-item para-three-dots" (click)="unfollow(item.user_id)">Unfollow</p>
+                                    </li>
+                                    <hr style="color: white; padding: 0;margin: 6px;">
+                                    <li class="close-three-dots">
+                                        <p class="close-three-dot">Close</p>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-detail">
+                        <div class="blog-title">{{item.title}}</div>
+                        <div class="blog-img">
+                            <img class="blog-img-var" src="../../assets/img/dekxdig-c4062bb4-8152-43ca-93a6-6f4a5afa2935.jpg" alt="">
+                            <!-- <img src="http://localhost:8080/blogImages/{{item.photo}}" alt="" width="100" height="100"> -->
+                        </div>
+
+
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-body">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia exercitationem quod at excepturi quis natus sequi fugiat dolor eum ex non maxime earum dicta ipsum, unde blanditiis in? Debitis consequatur nobis a, sed neque veniam minima vero tempora quae
+                            voluptatibus rem itaque vitae non sapiente quasi, tenetur dolore necessitatibus exercitationem, veritatis delectus! Est ipsa incidunt itaque, recusandae excepturi nobis, ad saepe assumenda delectus nihil, aliquam animi. Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Exercitationem totam dolorem omnis. Alias cupiditate eum quia reiciendis maiores, iure cum provident veniam cumque, eos nobis inventore repellendus eveniet modi odit dicta.
+                            Natus!
+                        </div>
+                        <div class="blog-hashtags">
+
+
+                            <span *ngFor="let hashtag of item.hashtags ; let i = index" [attr.data-index]="i" style="text-align: start;">
+                               
+                                    <a class="hashtag-link" routerLink="/search/{{hashtag}}">#{{hashtag}}</a>
+                               
+                            </span>
+
+                        </div>
+                        <hr style="color: white; padding: 0;margin: 0;">
+                        <div class="comment-stat">
+                            <div class="like-count">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div style="margin-left: 6px;">
+                                    {{item.likes}}
+                                </div>
+                            </div>
+                            <div class="comment-count">
+                                <i class="fa-regular fa-comment" style="margin: 0 4px 0 11px;"></i>
+                                <div style="margin-left: 5px;">
+                                    {{comments.length}}
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <hr style="color: white; padding: 0;margin: 0;">
+                        <div class="like-comment-icons">
+                            <div class="like-section" (click)="like(item.blog_id,i)" *ngIf="!item.likedby; else elseblock">
+                                <div class="like-section-left-heart-blank">
+                                    <i class="fa-regular fa-heart" style="font-size: x-large;"></i>
+                                </div>
+                                <div>
+                                    Like
+                                </div>
+
+                            </div>
+                            <ng-template #elseblock>
+                                <div class="like-section" (click)="unlike(item.blog_id,i)">
+                                    <div class="like-section-left-heart-red">
+                                        <img height="30" width="28" src="../../assets/img/heart.png" alt="">
+                                    </div>
+
+                                </div>
+                            </ng-template>
+
+                            <div class="comment-icon" (click)="comment(i,item.blog_id)">
+                                Comment
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-section" *ngIf="item.canComment">
+
+                        <div class="write-comment">
+                            <form>
+
+                                <div>
+                                    <input class="comment-input" type="text" name="about" [(ngModel)]="text" placeholder="Add a comment" /> <br/>
+                                </div>
+                                <div class="btn-send">
+                                    <button type="submit" (click)="addComment(item.blog_id,item.user_id,text)">Send</button>
+                                </div>
+                                <!-- <div style="display: block;">
+                                        <input style="width: 100%;" type="text" name="about" [(ngModel)]="text" placeholder="Add a comment" /> <br/>
+                                    </div>
+                                    <div style="display: flex;justify-content:right;">
+                                        <button type="submit" (click)="addComment(item.blog_id,item.user_id,text)">Send</button>
+                                    </div> -->
+
+                            </form>
+                        </div>
+                        <div *ngFor="let comment of comments">
+
+                            <div class="comment-unit">
+                                <div class="left-comment-unit">
+                                    <img style="display: inline;justify-content:left" src="http://localhost:8080/profileImages/{{comment.profile_photo}}" alt="" height="30px" width="30px">
+                                </div>
+                                <div class="right-comment-unit">
+                                    <div class="comment-owner" (click)="gotoUser(comment.user_name)">
+                                        {{comment.user_name}}
+                                    </div>
+                                    <div class="comment-content">
+                                        {{comment.comment}}
+                                    </div>
+                                    <div class="comment-time">
+                                        {{comment.time}}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- <div class="d-flex flex-row bd-highlight mb-3">
+                                <div class="p-2 bd-highlight">
+                                    <img style="display: inline;justify-content:left" src="http://localhost:8080/profileImages/{{comment.profile_photo}}" alt="" height="30px" width="30px">
+                                </div>
+
+                                <div class="p-2 bd-highlight" style="text-align: left;border: .5px solid grey;border-radius: 2%;padding: 5px;margin-right: 0;">
+                                    <h5>{{comment.user_name}}</h5>
+                                    <h6 style="font-weight: 50;">{{comment.comment}}</h6>
+                                    <p style="text-align: right;font-size: x-small;">{{comment.time}}</p>
+                                </div>
+                            </div> -->
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- category -->
+
+    </div>
+    <div class="child" id="child2">
+        <h2>Suggestion for you</h2>
+
+        <div class="div1" *ngIf="div_pointer==1">
+            <div *ngFor="let user of div1 ; let i = index" [attr.data-index]="i" class="div123">
+                <div class="suggestion-profile-img">
+                    <img src="http://localhost:8080/profileImages/{{user.profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                </div>
+                <div class="suggestion-name-follow">
+                    <div class="suggestion-profile-name" (click)="gotoUser(user.user_name)" style="padding: 5px;">
+                        <div>{{user.user_name}}</div>
+                        <div class="suggestion-follower-detail">followed by {{user.followers}} people</div>
+                    </div>
+                    <div class="suggestion-follow">
+                        <div class="follow" (click)="follow_2(1,user.user_id,i)" [hidden]="user.YouFollowThisUser">follow</div>
+                        <div [hidden]="!user.YouFollowThisUser" class="follow" (click)="unfollow_2(1,user.user_id,i)">following</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="div2" *ngIf="div_pointer==2">
+            <div *ngFor="let user of div2 ; let i = index" [attr.data-index]="i" class="div123">
+                <div class="suggestion-profile-img">
+                    <img src="http://localhost:8080/profileImages/{{user.profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                </div>
+                <div class="suggestion-name-follow">
+                    <div class="suggestion-profile-name" (click)="gotoUser(user.user_name)" style="padding: 5px;">
+                        <div>{{user.user_name}}</div>
+                        <div class="suggestion-follower-detail">followed by {{user.followers}} people</div>
+                    </div>
+                    <div class="suggestion-follow">
+                        <div class="follow" (click)="follow_2(2,user.user_id,i)" [hidden]="user.YouFollowThisUser">follow</div>
+                        <div [hidden]="!user.YouFollowThisUser" class="follow" (click)="unfollow_2(2,user.user_id,i)">following</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="div3" *ngIf="div_pointer==3">
+            <div *ngFor="let user of div3 ; let i = index" [attr.data-index]="i" class="div123">
+                <div class="suggestion-profile-img">
+                    <img src="http://localhost:8080/profileImages/{{user.profile_photo}}" alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                </div>
+                <div class="suggestion-name-follow">
+                    <div class="suggestion-profile-name" (click)="gotoUser(user.user_name)" style="padding: 5px;">
+                        <div>{{user.user_name}}</div>
+                        <div class="suggestion-follower-detail">followed by {{user.followers}} people</div>
+                    </div>
+                    <div class="suggestion-follow">
+
+                        <div class="follow" (click)="follow_2(3,user.user_id,i)" [hidden]="user.YouFollowThisUser">follow</div>
+                        <div [hidden]="!user.YouFollowThisUser" class="follow" (click)="unfollow_2(3,user.user_id,i)">following</div>
+                    </div>
+                </div>
+                <!-- <span>
+                    <img  src="http://localhost:8080/profileImages/{{user.profile_photo}}"  alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                </span>
+                <span (click)="gotoUser(user.user_name)" style="padding: 5px;">{{user.user_name}}</span>
+                <span (click)="gotoUser(user.user_name)" style="padding: 5px;">{{user.user_name}}</span> -->
+                <!-- <span [hidden]="!user.YouFollowThisUser" class="follow" (click)="unfollow_2(3,user.user_id,i)">following</span> -->
+                <!-- <span (click)="removeUser(3,i)"><i class="fa-regular fa-circle-xmark"></i></span> -->
+            </div>
+        </div>
+        <div class="control-bar">
+            <button class="prev control-bar-icon" type="button" [disabled]="div_pointer==first_div" (click)="prev()"><i class="fa-solid fa-chevron-left"></i></button>
+            <button type="button" class="next control-bar-icon" [disabled]="div_pointer==last_div" (click)="next()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <hr style="color: white; padding: 0;margin: 1rem 0;height: .5px;">
+        <div class="footer">
+            <!-- <p><a href="#">Back to top</a></p> -->
+
+            <div class="upper-div">
+                <a class="footer-link" href="https://www.facebook.com/rohan.bhowmick.7"><span class="fa fa-facebook-square fa-2x"></span></a>
+                <!-- <a href="https://www.facebook.com/w3schoolscom/" target="_blank" title="Facebook"><span class="fa fa-facebook-square fa-2x"></span></a> -->
+                <a class="footer-link" href="https://www.instagram.com/itz_partha_b/"><span class="fa fa-instagram fa-2x"></span></a>
+                <a class="footer-link" href="www.linkedin.com/in/partha-bhowmick-609621213"><span class="fa fa-linkedin-square fa-2x"></span></a>
+                <a class="footer-link" href="https://github.com/noobiedoo404"><span class="fa-brands fa-github fa-2x"></span></a>
+            </div>
+
+            <div class="lower-div">
+                <p class="copyright">© 2023 BlogSite by Partha Bhowmick.</p>
+
+            </div>
+            <!-- <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p> -->
+
+        </div>
+
+
+
+        <!-- <div id="oldPost1 " *ngFor="let user of fourUsersMax ; let i = index" [attr.data-index]="i">
+            <div style="padding: 5px;">
+                <span>
+                    <img  src="http://localhost:8080/profileImages/{{user.profile_photo}}"  alt="" width="50" height="50" style="border-radius:10%;padding: 2px;">
+                </span>
+                <span (click)="gotoUser(user.user_name)" style="padding: 5px;">{{user.user_name}}</span>
+                <span class="follow" (click)="follow(user.user_id)" [hidden]="user.YouFollowThisUser">follow</span>
+                <span [hidden]="!user.YouFollowThisUser" class="follow" (click)="unfollow(user.user_id)">following</span>
+                <span (click)="removeUser(i)"><i class="fa-regular fa-circle-xmark"></i></span>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button *ngIf="this.moreUsers" (click)="ShowMoreUsers()">more</button>
+            <button *ngIf="!this.moreUsers" (click)="BackToTop()">Back to the top</button>
+        </div> -->
+    </div>
+</div>

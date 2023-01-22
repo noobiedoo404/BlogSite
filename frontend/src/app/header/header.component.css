@@ -1,0 +1,271 @@
+.btn {
+    color: black;
+    margin-right: 10px;
+    font-weight: 500;
+    padding: 4px 7px;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, .55);
+    border-color: azure;
+    padding: 0;
+}
+
+
+/* .navbar-dark .navbar-toggler {
+    
+} */
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+#btnProfile {
+    border-radius: 50%;
+}
+
+#type-box {
+    font-weight: 500;
+    font-size: larger;
+    /* border: 1px solid green; */
+    width: 93%;
+    /* min-width: 60
+    0px; */
+    ;
+    margin-right: 0;
+    height: 40px;
+    background-color: rgb(34, 34, 34);
+    border: 0;
+    border-radius: 0;
+    color: antiquewhite;
+    /* padding: 3px; */
+}
+
+#search-icon {
+    font-size: 15px;
+    color: whitesmoke;
+    width: 7%;
+    padding-left: 2%;
+}
+
+*/ .button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.navbar {
+    font-size: .8rem;
+    padding: .5rem;
+    background-color: black;
+    margin-bottom: .2px;
+    border-bottom: .1px groove grey;
+}
+
+#btnLog {
+    background-color: #00cf35;
+    color: black;
+}
+
+*/ #btnLog:hover::before {
+    background-color: rgba(0, 128, 28, 0.826);
+}
+
+#btnReg {
+    background-color: rgb(0, 191, 255);
+    color: black;
+}
+
+a {
+    color: #fff;
+}
+
+.dropdown-item {
+    color: black;
+}
+
+*/ #nav {
+    position: fixed;
+    top: 0;
+}
+
+*/ #searchResult {
+    position: fixed;
+    z-index: 1000;
+    /* width: 500px; */
+    background-color: whitesmoke;
+    color: black;
+    max-height: 200px;
+    overflow: auto;
+}
+
+
+/* menu bar for mobile */
+
+#menu-bar-mobile {
+    position: fixed;
+    color: white;
+    background-color: black;
+    font-size: larger;
+    display: flex;
+    width: 100%;
+    bottom: 0px;
+}
+
+.menu-container {
+    display: flex;
+}
+
+#menu-bar-tab {
+    width: 70px;
+    left: 0px;
+    padding: 10px 8px;
+    font-weight: 400;
+    font-size: small;
+    position: fixed;
+    right: 0px;
+    border-radius: 4px;
+    color: white;
+    border-right: .1px groove grey;
+    height: 100vh;
+    background-color: black;
+}
+
+#menu-bar-desktop {
+    left: 0px;
+    padding: 10px 8px;
+    font-weight: 400;
+    font-size: medium;
+    position: fixed;
+    right: 0px;
+    border-radius: 4px;
+    color: white;
+    border-right: .1px groove grey;
+    height: 100vh;
+    background-color: black;
+}
+
+.blog-user-results {
+    display: block;
+    text-decoration: none;
+}
+
+.blog-user-results:hover {
+    background-color: rgb(34, 34, 34);
+}
+
+.dropdown-item {
+    cursor: default;
+}
+
+.modalcard {
+    position: absolute;
+    background-color: rgb(34, 34, 34);
+    max-height: 50vh;
+    overflow-y: scroll;
+    color: antiquewhite;
+    font-size: large;
+}
+
+
+/* for mobile */
+
+@media screen and (min-width: 100px)and (max-width: 539px) {
+    #search-bar {
+        width: 80%;
+    }
+    #type-box {
+        width: 100%;
+    }
+    .modalcard {
+        width: 76%;
+    }
+    .navbar-brand {
+        display: none;
+    }
+    #search-icon {
+        display: none;
+    }
+    #btnLog {
+        margin: 2px 0;
+    }
+    #btnReg {
+        margin: 2px 0;
+    }
+    #menu-bar-desktop {
+        display: none;
+    }
+    #menu-bar-tab {
+        display: none;
+    }
+    #menu-bar-mobile {
+        z-index: 1;
+    }
+    .div-links {
+        width: 33.33%;
+        text-align: center;
+    }
+}
+
+
+/* for tablet */
+
+@media screen and (min-width: 540px) and (max-width: 1263px) {
+    #search-bar {
+        width: 40%;
+    }
+    .modalcard {
+        width: 39%;
+    }
+    #menu-bar-mobile {
+        display: none;
+    }
+    .div-links {
+        margin: 30px 0;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .desktop-menu-icon {
+        margin: 0 10px;
+        font-size: x-large;
+    }
+    #menu-bar-desktop {
+        display: none;
+    }
+}
+
+
+/* for desktop */
+
+@media screen and (min-width: 1264px) {
+    #search-bar {
+        width: 40%;
+    }
+    .modalcard {
+        width: 39%;
+    }
+    #menu-bar-mobile {
+        display: none;
+    }
+    #menu-bar-tab {
+        display: none;
+    }
+    .div-links {
+        margin: 30px 0;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .desktop-menu-icon {
+        margin: 0 10px;
+        font-size: x-large;
+    }
+    #menu-bar-desktop {
+        width: 220px;
+    }
+}

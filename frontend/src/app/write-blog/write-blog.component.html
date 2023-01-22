@@ -1,0 +1,82 @@
+<div class="blog-upload">
+
+    <!-- <div class="profile-img">
+        <img width="50px" height="50px" src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" alt="">
+    </div> -->
+    <div class="blog-content">
+        <div class="profile-img">
+            <img width="50px" height="50px" style="border-radius:10px ;" src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" alt="">
+        </div>
+
+        <div class="input-section">
+
+            <form>
+                <div class="blog-title blog-item">
+                    <label for="exampleFormControlInput2" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" name="title" [(ngModel)]="title" placeholder="Write blog title...">
+                </div>
+                <div class="blog-img blog-item">
+                    <label for="formFile" class="form-label">Add Image</label>
+                    <input class="form-control" input type="file" name="photo" placeholder="Select the image file..." (change)="selectImg($event)" accept="image/png, image/jpeg" id="formFile">
+                </div>
+
+                <div class="blog-body blog-item">
+                    <label for="exampleFormControlInput3" class="form-label">About</label>
+                    <!-- <input type="text" class="form-control" id="exampleFormControlInput3" name="body" [(ngModel)]="body" placeholder="blog_body"> -->
+                    <textarea type="text" class="form-control" id="exampleFormControlInput3" name="body" [(ngModel)]="body" placeholder="Write about your blog..." rows="5">
+        
+                        </textarea>
+                </div>
+                <div class="blog-hashtags blog-item">
+                    <label for="exampleFormControlInput1" class="form-label">Hashtags</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="hashtags" [(ngModel)]="hashtags" placeholder="Mention the hashtags...">
+                </div>
+                <div class="mb-3 float-right">
+                    <button class="btn-sub" type="submit" (click)="onSubmit()">Add Blog</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- <div class="body">
+        <div class="container">
+
+            <div class="card" style="width: 50rem;">
+                <div class="card-body" align="left">
+
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="category" [(ngModel)]="category" placeholder="Enter blog category">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput2" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput2" name="title" [(ngModel)]="title" placeholder="Enter blog title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput3" class="form-label">Body</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput3" name="body" [(ngModel)]="body" placeholder="blog_body">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput4" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput4" name="description" [(ngModel)]="description" placeholder="Description">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Add Image</label>
+                            <input class="form-control" input type="file" name="photo" placeholder="Select the image file" (change)="selectImg($event)" accept="image/png, image/jpeg" id="formFile">
+                        </div>
+
+                        <div class="mb-3 float-right">
+                            <button type="submit" (click)="onSubmit()">Add Blog</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->

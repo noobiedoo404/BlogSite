@@ -1,0 +1,198 @@
+.body {
+    position: absolute;
+    background-color: black;
+    height: 92%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/img/dekxdig-c4062bb4-8152-43ca-93a6-6f4a5afa2935.jpg');
+    background-color: #33cabb;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    /* border: 1px solid white; */
+    /* 
+    max-width: 600px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-left: 480px;
+    box-shadow: 0 0 15px #0b0f19;
+    transform: scale(0.9);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    height: 570px;
+    */
+    padding: 20px;
+    /* height: 500px; */
+    width: 500px;
+    background-color: #00000096;
+    border-radius: 5px;
+    /* margin: 200px 500px; */
+}
+
+h1,
+label {
+    color: white;
+}
+
+a {
+    color: rgb(184, 255, 250);
+}
+
+.btn-login {
+    height: 50px;
+    border-radius: 40px;
+    color: rgb(0, 3, 3);
+    background-color: rgb(0, 213, 255);
+    border: none;
+    box-shadow: 2px 2px 6px rgb(20, 20, 20);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-login:disabled {
+    cursor: not-allowed;
+    color: rgb(1, 37, 37);
+    background-color: rgba(0, 213, 255, 0.447);
+    border: none;
+    box-shadow: none;
+}
+
+.btn-login:disabled:hover {
+    cursor: not-allowed;
+    color: rgb(1, 37, 37);
+    background-color: rgba(0, 213, 255, 0.447);
+    border: none;
+    box-shadow: none;
+}
+
+.btn-login:hover {
+    font-size: 18px;
+    background-color: rgba(0, 53, 63, 0.537);
+    color: rgb(0, 247, 255);
+    border: 1px solid rgb(0, 247, 255);
+    box-shadow: 0 0 10px rgb(0, 247, 255), inset 0 0 10px rgb(0, 247, 255);
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    color: white;
+}
+
+.checkbox-input {
+    margin-top: 12px;
+}
+
+.material-symbols-rounded {
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+    color: rgb(163, 163, 163);
+}
+
+.icon-btn {
+    position: absolute;
+    right: 78px;
+    border: none;
+    background: none;
+    padding-top: 7px;
+}
+
+input.ng-untouched.ng-invalid {
+    box-shadow: 0 0 10px rgb(24, 243, 255);
+    border: none;
+}
+
+input.ng-touched.ng-invalid {
+    box-shadow: 0 0 10px red;
+    border: none;
+}
+
+input.ng-valid {
+    box-shadow: 0 0 10px rgb(42, 255, 52);
+    border: none;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    padding-top: 5px;
+}
+
+.hidden-message {
+    color: red;
+    background-color: rgba(0, 0, 1, 0.648);
+    border-radius: 30px;
+    padding: 2px;
+    transform: translateX(50px);
+    width: fit-content;
+}
+
+.lower-div {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    color: white;
+    font-weight: 200;
+}
+
+@media screen and (min-width: 100px)and (max-width: 539px) {
+    .body {
+        height: 90%;
+    }
+    .container {
+        height: none;
+        width: 100%;
+        /* border: 1px solid white; */
+        border-radius: 0px;
+        border-top: 2px solid black;
+        padding: 40% 20px;
+        /* margin-bottom: 20px; */
+    }
+    .form-control-lg {
+        font-size: medium;
+    }
+    .btn-login {
+        height: 40px;
+    }
+    .mt-3 {
+        margin-top: 0;
+    }
+}
+
+
+/* for tablet */
+
+@media screen and (min-width: 540px) and (max-width: 989px) {
+    .body {
+        height: 90%;
+    }
+    .container {
+        height: 95%;
+        font-size: smaller;
+    }
+    .form-control-lg {
+        font-size: medium;
+    }
+}
+
+
+/* for desktop */
+
+@media screen and (min-width: 990px) {
+    .container {
+        height: 80%;
+    }
+    .btn-login {
+        margin-top: 3px;
+    }
+    .form-control-lg {
+        font-size: large;
+    }
+}

@@ -1,0 +1,105 @@
+<!-- <div class="guru">
+    <div class="card" style="width: 50rem;">
+        <div class="card-body" align="left">
+            <form action="" class="form" #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="loginUser()" novalidate>
+                <div class="form-group mb-2">
+
+                    <input #email='ngModel' [(ngModel)]="loginUserData.email" name="email" type="text" class="form-control rounded-0" placeholder="Email" required>
+                </div>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+
+                    <div *ngIf="email.errors?.['required']" class="alert">
+                        Email is required.
+                    </div>
+
+                </div>
+
+                <div class="form-group mb-2">
+
+                    <input #pass='ngModel' [(ngModel)]="loginUserData.password" name="password" type="password" class="form-control rounded-0" placeholder="Password" required>
+                </div>
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert">
+
+                    <div *ngIf="pass.errors?.['required']">
+                        Password is required.
+                    </div>
+
+                </div>
+                <p style="padding: .5rem;font-weight:500">By clicking log in, or continuing with the other options below, you agree to our Terms of Service and have read the Privacy Policy</p>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-primary" style="background-color: rgb(0, 191, 255);">Log in</button>
+                </div>
+
+            </form>
+            <div [hidden]="!this.tryagain" class="alert">The credentials you entered don't belong to an account. Please check them and <button [hidden]="!this.tryagain" (click)="login()">Try again</button></div>
+
+            <div [hidden]="!this.tryagain" style="text-align: center;">Don't have an account? <button [hidden]="!this.tryagain" class="register" (click)="register()">Register</button></div>
+
+        </div>
+    </div>
+</div> -->
+<div class="body">
+    <div class="container">
+        <h1 class="text-center text-xl-start">Welcome Back</h1>
+        <p class="text-center text-xl-start" style="color:white;">Don’t have an account yet?
+            <a routerLink="/signup">Register here.</a>
+        </p>
+
+        <form class="needs-validation form-login d-flex flex-columnn justify-content-center" novalidate #userForm="ngForm" (ngSubmit)="loginUser()">
+            <div class="form-group my-3">
+                <label for="" class="form-label fs-base my-2">Email
+              <span *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']"
+                class="text-warning">
+                ( Email is required )
+              </span>
+            </label>
+                <input #email='ngModel' [(ngModel)]="loginUserData.email" placeholder="Enter Your Email ID" name="email" type="email" class="form-control form-control-lg rounded-3" [ngClass]="{'ng-invalid':this.tryagain,'ng-valid':!this.tryagain}" required>
+            </div>
+
+            <div class="form-group my-3 mb-4">
+                <label for="" class="form-label fs-base my-2">Password
+              <span *ngIf="pass.invalid && (pass.dirty || pass.touched) && pass.errors?.['required']"
+                class="text-warning mb-3">
+                ( Password is required )
+              </span>
+            </label>
+                <div class="input-field">
+                    <input #pass='ngModel' [(ngModel)]="loginUserData.password" name="password" [type]="!viewPassword?'password':'text'" class="form-control form-control-lg rounded-3" [ngClass]="{'ng-invalid':this.tryagain,'ng-valid':!this.tryagain}" placeholder="Enter Your Password"
+                        required>
+                    <input type="checkbox" (click)="showPass()" class="checkbox-input">Show Password
+
+                    <!-- <button type="button" class="icon-btn" (click)="showPass()">
+                <span class="material-symbols-rounded" *ngIf="!viewPassIcon">
+                  visibility
+                </span>
+                   </button>
+                    <button type="button" class="icon-btn" (click)="showPass()">
+                <span class="material-symbols-rounded" *ngIf="viewPassIcon">
+                  visibility_off
+                </span>
+              </button> -->
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center hidden-message align-items-center" *ngIf="this.tryagain">
+                <span class="material-symbols-rounded text-danger mx-2">
+              error
+            </span>
+                <span><i>Invalid Login Credentials.... Please Try Again</i></span>
+                <button type="button" class="close-btn" (click)="closeit()">
+              <span class="material-symbols-rounded my-1">
+                close
+              </span>
+            </button>
+            </div>
+            <button [disabled]="userForm.form.invalid || this.tryagain" type="submit" class="btn-login btn-lg">
+            <strong>Sign In</strong>
+          </button>
+        </form>
+        <div class="lower-div">
+            <p class="copyright">© 2023 BlogSite by Partha Bhowmick.</p>
+
+        </div>
+    </div>
+</div>

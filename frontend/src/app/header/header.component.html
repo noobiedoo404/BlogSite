@@ -1,0 +1,216 @@
+<!-- <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css" integrity="sha512-p++g4gkFY8DBqLItjIfuKJPFvTPqcg2FzOns2BNaltwoCOrXMqRIOqgWqWEvuqsj/3aVdgoEo2Y7X6SomTfUPA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head> -->
+<nav class="navbar navbar-dark navbar-expand-lg sticky-top" id="nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">BlogSite</a>
+        <div id="search-bar">
+            <div style="background-color: rgb(34, 34, 34);" (click)="$event.stopPropagation()">
+
+                <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+                <input id="type-box" #search='ngModel' type="search" [(ngModel)]="searchInput" name="search" placeholder=" Search BlogSite" (click)="clickit()">
+
+
+
+            </div>
+
+            <div *ngIf="search.value && show" class="modalcard">
+                <div>
+                    <p style="margin: 0;">Go to #{{search.value}}</p>
+                    <div *ngFor="let hashtag of this.hashtags | searchHashtag: searchInput " class="blog-user-results">
+
+                        <div (click)="gotoHashtag(hashtag)" style="display: flex">
+                            <i class="fa-solid fa-magnifying-glass" style="font-size: 15px; color: whitesmoke;align-self: center;padding: 10px;"></i>
+                            <div style="align-self: center;">
+
+                                #{{hashtag}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p style="margin: 5px 0 0 0;">Go to @{{search.value}}</p>
+                    <div *ngFor="let user of this.allUsers | search: searchInput " class="blog-user-results">
+
+
+                        <div (click)="gotoUser(user.user_name)" style="display: flex">
+                            <i class="fa-solid fa-magnifying-glass" style="font-size: 15px; color: whitesmoke;align-self: center;padding: 10px;"></i>
+
+                            <div style="align-self: center;">
+                                <span><img width="20px" height="20px" src="http://localhost:8080/profileImages/{{user.profile_photo}}" alt="">@{{user.user_name}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="btnGo" class="btn btn-outline-warning" type="submit">Go</button>
+                </form> -->
+
+
+
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a>
+                </li> -->
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Blogs
+                        </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item">Web Development</a></li>
+                        <li><a class="dropdown-item">Technology</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" (click)="gotoWriteBlogPage()" ariaCurrentWhenActive="page">Write a Blog</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact Us</a>
+                </li> -->
+
+
+
+
+
+            </ul>
+            <ul class="navbar-nav ml-auto  mb-lg-0">
+                <li class="nav-item">
+                    <div type="button" id="btnLog" class="btn  nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Log In</div>
+                </li>
+                <li class="nav-item">
+                    <div type="button" id="btnReg" class="btn nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Sign Up</div>
+                </li>
+                <!-- <li class="nav-item">
+                    <button type="button" id="btnProfile" style="background-color: green;" class="btn nav-link" *ngIf="_authService.loggedIn()" routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page">Profile</button>
+                </li> -->
+                <!-- <li class="nav-item" *ngIf="_authService.loggedIn()">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{this.username}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" (click)="gotoProfile()">Profile</a>
+                            <a class="dropdown-item" (click)="_authService.logOut2()">Log in with another account</a>
+                            <a class="dropdown-item" *ngIf="_authService.loggedIn()" (click)="_authService.logOut1()"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
+                        </div>
+                    </div>
+                </li> -->
+
+                <!-- <li class="nav-item" *ngIf="_authService.loggedIn()">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{this.username}}
+                        </button>
+                        
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <a class="dropdown-item" (click)="gotoProfile()">Profile</a>
+                            <a class="dropdown-item" (click)="_authService.logOut2()">Log in with another account</a>
+                            <a class="dropdown-item" *ngIf="_authService.loggedIn()" (click)="_authService.logOut1()"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
+                        </ul>
+                    </div>
+                </li> -->
+                <div class="btn-group" *ngIf="_authService.loggedIn()">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        <img height="30" width="30" style="border-radius:50%" src="http://localhost:8080/profileImages/{{userInfo.profile_photo}}" alt="">
+                        {{this.userInfo.user_name}}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><a class="dropdown-item" (click)="gotoProfile()"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Profile</a></li>
+                        <li><a class="dropdown-item" (click)="_authService.logOut2()"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Switch account</a></li>
+                        <li><a class="dropdown-item" (click)="_authService.logOut1()"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;&nbsp;Logout</a></li>
+                    </ul>
+                </div>
+                <!-- <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div> -->
+                <!-- <a *ngIf="_authservice.loggedIn()" class="nav-link" style="cursor: pointer;" (click)="_authservice.logOut()">Log out</a> -->
+                <!-- <button type="button" id="btnLogOut" class="btn nav-link" *ngIf="_authService.loggedIn()" (click)="_authService.logOut()">{{this.username}}</button> -->
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="menu-bar-mobile">
+
+
+    <!-- <div class="nav-links" data-bs-toggle="modal" data-bs-target="#editPhoto"><i class="fa-solid fa-pen-to-square"></i></div> -->
+    <div class="nav-links div-links" (click)="gotoWriteBlogPage()"><i class="fa-solid fa-plus"></i></div>
+    <div class="nav-links div-links" routerLink="/home"><i class="fa-solid fa-house"></i></div>
+    <!-- <div *ngIf="_authService.loggedIn()" class="nav-links div-links"><a style="padding: 0;color: white;" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-right-to-bracket"></i>
+                    
+                </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" (click)="_authService.logOut1()">Log out</a></li>
+            <li><a class="dropdown-item" (click)="_authService.logOut2()">Switch account</a></li>
+        </ul>
+    </div> -->
+    <div class="nav-links div-links" (click)="gotoProfile()"><i class="fa-solid fa-user"></i></div>
+
+
+</div>
+
+<div id="menu-bar-tab">
+    <div class="nav-links div-links" routerLink="/home"><i class="fa-solid fa-house desktop-menu-icon"></i></div>
+    <div class="nav-links div-links" (click)="gotoWriteBlogPage()"><i class="fa-solid fa-plus desktop-menu-icon"></i></div>
+    <!-- <div class="nav-links div-links" data-bs-toggle="modal" data-bs-target="#editPhoto"><i class="fa-solid fa-pen-to-square desktop-menu-icon"></i> Edit </div> -->
+    <div class="nav-links div-links" (click)="gotoProfile()"><i class="fa-solid fa-user desktop-menu-icon"></i> </div>
+    <!-- <div class="nav-links div-links" routerLink="/profile"><i class="fa-solid fa-user desktop-menu-icon"></i> Profile</div> -->
+    <div *ngIf="_authService.loggedIn()" class="nav-links div-links"><a style="padding: 0;color: white;" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-power-off desktop-menu-icon"></i>
+                
+            </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" (click)="_authService.logOut1()">Log out</a></li>
+            <li><a class="dropdown-item" (click)="_authService.logOut2()">Switch account</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div id="menu-bar-desktop">
+    <div class="nav-links div-links" routerLink="/home"><i class="fa-solid fa-house desktop-menu-icon"></i> Home</div>
+    <div class="nav-links div-links" (click)="gotoWriteBlogPage()"><i class="fa-solid fa-plus desktop-menu-icon"></i> Create</div>
+    <!-- <div class="nav-links div-links" data-bs-toggle="modal" data-bs-target="#editPhoto"><i class="fa-solid fa-pen-to-square desktop-menu-icon"></i> Edit </div> -->
+    <div class="nav-links div-links" (click)="gotoProfile()"><i class="fa-solid fa-user desktop-menu-icon"></i> Profile</div>
+    <!-- <div class="nav-links div-links" routerLink="/profile"><i class="fa-solid fa-user desktop-menu-icon"></i> Profile</div> -->
+    <div *ngIf="_authService.loggedIn()" class="nav-links div-links"><a style="padding: 0;color: white;" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-power-off desktop-menu-icon"></i>
+                LogIn
+            </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" (click)="_authService.logOut1()">Log out</a></li>
+            <li><a class="dropdown-item" (click)="_authService.logOut2()">Switch account</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<router-outlet></router-outlet>

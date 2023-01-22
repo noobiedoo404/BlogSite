@@ -1,0 +1,45 @@
+.footer {
+    /* position: fixed;
+    bottom: 30px;
+    right: 10px;
+    margin: 0px 178px 0px 0px;
+    background: transparent;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px; */
+    /* position: relative; */
+    height: 70px;
+    background-color: black;
+    color: white;
+    margin-bottom: 70px;
+    padding: 40px;
+    text-align: center;
+}
+
+.upper-div {
+    display: flex;
+    justify-content: center
+}
+
+.lower-div {
+    margin-bottom: 200px;
+}
+
+.footer-link {
+    padding: 4px;
+}
+
+
+/* .footer-link:hover {
+    background-color: red;
+} */
+
+.fa-facebook-square:hover,
+.fa-thumbs-o-up:hover {
+    color: #3B5998;
+}
+
+.fa-instagram:hover {
+    color: blueviolet;
+}

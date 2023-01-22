@@ -1,0 +1,200 @@
+<div class="parent">
+    <hr style="color: white;">
+    <div id="child">
+
+        <!-- this is the profile section  -->
+        <!-- here the profile=hashtagname -->
+
+        <div class="hashtag-detail">
+            <div class="hashtag-name"><i class="fa-solid fa-hashtag">{{this.hashtag}}</i></div>
+            <div class="hashtag-usedby">
+                Used by {{this.blogArray.length}} Posts
+            </div>
+
+        </div>
+
+
+        <!-- this is the blog section -->
+
+        <div *ngIf="this.blogArray.length!=0">
+
+            <div class="blog-section" *ngFor="let item of blogArray ; let i = index" [attr.data-index]="i">
+
+                <div class="blog-unit">
+                    <div class="blog-unit-left">
+                        <img src="http://localhost:8080/profileImages/{{item.profile_photo}}" alt="" width="60" height="60">
+                    </div>
+                    <div class="blog-unit-right">
+                        <div class="blog-user-detail">
+                            <div class="blog-user-img-inside">
+                                <img src="http://localhost:8080/profileImages/{{item.profile_photo}}" alt="" width="40" height="40">
+                            </div>
+                            <div class="blog-user-detail-left">
+                                <div class="blog-user-name" (click)="gotoUser(item.user_name)">{{item.user_name}}</div>
+                                <!-- <button *ngIf="followings | userNotThere : item.user_id" [hidden]="item.user_id==target" class="follow" (click)="follow(item.user_id)">follow</button>
+                            <button [hidden]="item.user_id!=target" class="follow" (click)="unfollow(item.user_id)">following</button> -->
+                                <div class="blog-user-follow-status" *ngIf="followings | userNotThere : item.user_id" [hidden]="item.user_id==target" (click)="follow(item.user_id)"> follow</div>
+                                <div class="blog-user-follow-status" [hidden]="item.user_id!=target" (click)="unfollow(item.user_id)"> following</div>
+
+                            </div>
+                            <div class="blog-user-detail-right">
+                                <!-- <div class="three-dots">
+    
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div> -->
+                                <div class="dropdown">
+                                    <div id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <ul class="dropdown-menu three-dots" aria-labelledby="dropdownMenuButton2">
+                                        <li id="test">
+                                            <p class="dropdown-item para-three-dots">{{item.time}}</p>
+                                        </li>
+
+                                        <hr style="color: white; padding: 0;margin: 0;">
+                                        <li class="close-three-dot">
+                                            <p class="para-three-dots">Close</p>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-detail">
+                            <div class="blog-title">{{item.title}}</div>
+                            <div class="blog-img">
+                                <img width="400" height="300" class="blog-img-var" src="../../assets/img/graffiti-woman-portrait-art-igq4df7ico6r8j76.jpeg" alt="">
+                                <!-- <img src="http://localhost:8080/blogImages/{{item.photo}}" alt="" width="100" height="100"> -->
+                            </div>
+
+
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-body">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia exercitationem quod at excepturi quis natus sequi fugiat dolor eum ex non maxime earum dicta ipsum, unde blanditiis in? Debitis consequatur nobis a, sed neque veniam minima vero tempora quae
+                                voluptatibus rem itaque vitae non sapiente quasi, tenetur dolore necessitatibus exercitationem, veritatis delectus! Est ipsa incidunt itaque, recusandae excepturi nobis, ad saepe assumenda delectus nihil, aliquam animi.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem totam dolorem omnis. Alias cupiditate eum quia reiciendis maiores, iure cum provident veniam cumque, eos nobis inventore repellendus eveniet modi odit
+                                dicta. Natus!
+                            </div>
+                            <div class="blog-hashtags">
+
+
+                                <span *ngFor="let hashtag of item.hashtags ; let i = index" [attr.data-index]="i" style="text-align: start;">
+                                   
+                                        <a class="hashtag-link" routerLink="/search/{{hashtag}}">#{{hashtag}}</a>
+                                    
+                                </span>
+
+                            </div>
+                            <hr style="color: white; padding: 0;margin: 0;">
+                            <div class="comment-stat">
+                                <div class="like-count">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <div style="margin-left: 6px;">
+                                        {{item.likes}}
+                                    </div>
+                                </div>
+                                <div class="comment-count">
+                                    <i class="fa-regular fa-comment" style="margin: 0 4px 0 11px;"></i>
+                                    <div style="margin-left: 5px;">
+                                        {{comments.length}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <hr style="color: white; padding: 0;margin: 0;">
+                            <div class="like-comment-icons">
+                                <div class="like-section" (click)="like(item.blog_id,i)" *ngIf="!item.likedby; else elseblock">
+                                    <div class="like-section-left-heart-blank">
+                                        <i class="fa-regular fa-heart" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div>
+                                        Like
+                                    </div>
+
+                                </div>
+                                <ng-template #elseblock>
+                                    <div class="like-section" (click)="unlike(item.blog_id,i)">
+                                        <div class="like-section-left-heart-red">
+                                            <img height="30" width="28" src="../../assets/img/heart.png" alt="">
+                                        </div>
+
+                                    </div>
+                                </ng-template>
+
+                                <div class="comment-icon" (click)="comment(i,item.blog_id)">
+                                    Comment
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-section" *ngIf="item.canComment">
+
+                            <div class="write-comment">
+                                <form>
+
+                                    <div>
+                                        <input class="comment-input" type="text" name="about" [(ngModel)]="text" placeholder="Add a comment" /> <br/>
+                                    </div>
+                                    <div class="btn-send">
+                                        <button type="submit" (click)="addComment(item.blog_id,item.user_id,text)">Send</button>
+                                    </div>
+                                    <!-- <div style="display: block;">
+                                            <input style="width: 100%;" type="text" name="about" [(ngModel)]="text" placeholder="Add a comment" /> <br/>
+                                        </div>
+                                        <div style="display: flex;justify-content:right;">
+                                            <button type="submit" (click)="addComment(item.blog_id,item.user_id,text)">Send</button>
+                                        </div> -->
+
+                                </form>
+                            </div>
+                            <div *ngFor="let comment of comments">
+
+                                <div class="comment-unit">
+                                    <div class="left-comment-unit">
+                                        <img style="display: inline;justify-content:left" src="http://localhost:8080/profileImages/{{comment.profile_photo}}" alt="" height="30px" width="30px">
+                                    </div>
+                                    <div class="right-comment-unit">
+                                        <div class="comment-owner" (click)="gotoUser(comment.user_name)">
+                                            {{comment.user_name}}
+                                        </div>
+                                        <div class="comment-content">
+                                            {{comment.comment}}
+                                        </div>
+                                        <div class="comment-time">
+                                            {{comment.time}}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- <div class="d-flex flex-row bd-highlight mb-3">
+                                    <div class="p-2 bd-highlight">
+                                        <img style="display: inline;justify-content:left" src="http://localhost:8080/profileImages/{{comment.profile_photo}}" alt="" height="30px" width="30px">
+                                    </div>
+    
+                                    <div class="p-2 bd-highlight" style="text-align: left;border: .5px solid grey;border-radius: 2%;padding: 5px;margin-right: 0;">
+                                        <h5>{{comment.user_name}}</h5>
+                                        <h6 style="font-weight: 50;">{{comment.comment}}</h6>
+                                        <p style="text-align: right;font-size: x-small;">{{comment.time}}</p>
+                                    </div>
+                                </div> -->
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div *ngIf="this.blogArray.length==0">
+            <h1>No blog yes!</h1>
+        </div>
+
+    </div>
